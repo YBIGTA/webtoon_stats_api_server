@@ -68,3 +68,28 @@ FROM comment T
 WHERE T.title_id=title_id and T.episode_no=episode_no;
 END //
 DELIMITER ;
+
+
+# 그 화에서 해당 형태소가 들어있는 댓글의 개수를 카운트
+DELIMITER //
+CREATE PROCEDURE getCommentCountHavingTargetMorpheme(IN title_id INT(11), IN episode_no INT(11), IN target_morpheme VARCHAR(15))
+BEGIN
+SELECT count(distinct comment_no)
+FROM comment_morpheme_analyzed T
+WHERE T.title_id=title_id and T.episode_no=episode_no and T.morpheme=target_morpheme
+END //
+DELIMITER ; (edited)
+
+#그리고 그 화의 전체 댓글 중에서 그런 댓글의 비율을 구해준다 
+DELIMITER //
+CREATE PROCEDURE getCommentProportionHavingTargetMorpheme(IN title_id INT(11), IN episode_no INT(11), IN target_morpheme VARCHAR(15))
+BEGIN
+SELECT getCommentCountHavingTargetMorpheme(title_id,episode_no,target_morpheme) / count(distinct comment_no) 
+FROM comment C
+WHERE C.title_id=title_id and C.episode_no=episode_no
+END //
+DELIMITER ;
+
+
+
+
