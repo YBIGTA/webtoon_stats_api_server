@@ -91,5 +91,20 @@ END //
 DELIMITER ;
 
 
+#그 에피소드의 첫댓글과 그 에피소드 베댓의 시간 차이 뽑아오기
+DELIMITER //
+CREATE PROCEDURE getBestCommentTimeFromFirstComment()
+BEGIN
+
+# 각화의 첫댓글로부터 베댓들이 몇 분 떨어져있는지 알아야 하니깐
+# 각 베댓이 있는 에피소드의 첫댓글 시간을 가져와서
+# 베댓의 post_time과의 차이를 봐야 한다 
+
+SELECT TIMEDIFF(post_time, getFirstCommentTime(title_id, episode_no))
+FROM comment
+WHERE best_comment=1;
+
+END //
+DELIMITER ;
 
 
