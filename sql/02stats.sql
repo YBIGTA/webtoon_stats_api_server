@@ -108,3 +108,19 @@ END //
 DELIMITER ;
 
 
+DELIMITER //
+CREATE PROCEDURE getCommentCountsByEpisode(IN title_id INT(11))
+
+SELECT C.episode_no, count(comment_no)
+FROM comment C
+WHERE C.title_id=title_id
+GROUP BY C.episode_no;
+
+END //
+DELIMITER ;
+
+
+
+# 각 에피소드 조회수 대비 댓글 수
+
+# 
