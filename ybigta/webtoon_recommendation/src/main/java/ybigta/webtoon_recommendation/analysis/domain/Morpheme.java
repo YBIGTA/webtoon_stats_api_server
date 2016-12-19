@@ -44,5 +44,6 @@ public class Morpheme {
 		return "Morpheme [morpheme=" + morpheme + ", morphemeCount=" + morphemeCount + ", morphemeTag=" + morphemeTag
 				+ ", titleId=" + titleId + "]";
 	}
-
+	
+	
 }
