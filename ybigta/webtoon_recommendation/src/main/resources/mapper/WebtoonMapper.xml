@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ybigta.webtoon_recommendation.mapper.WebtoonMapper">
+	<select id="selectWebtoon" resultType="ybigta.webtoon_recommendation.domain.Webtoon">
+		SELECT
+			title_id AS titleId,
+			title AS title,
+			author AS author,
+			genre AS genre,
+			thumbnail AS thumbnail
+		FROM
+			webtoon
+		WHERE
+			title_id = #{title_id}
+	</select>
+	
+	<select id="selectWebtoonId" resultType="int">
+		SELECT 
+			title_id 
+		FROM 
+			webtoon
+		WHERE
+			title = #{title};
+	</select>
+	
+	<select id="selectRecommendWebtoonList" resultType="ybigta.webtoon_recommendation.domain.Webtoon">
+		
+		SELECT
+			title_id AS titleId,
+		    title AS title,
+		    author AS author,
+		    genre AS genre,
+		    thumbnail AS thumbnail
+		FROM
+			similarity sim
+			LEFT OUTER JOIN webtoon web
+		    ON sim.webtoon2_id = web.title_id
+		WHERE
+			sim.webtoon1_id = #{title_id}
+		ORDER BY
+			sim.sim_score
+		LIMIT 5;
+		
+	</select>	
+</mapper>
