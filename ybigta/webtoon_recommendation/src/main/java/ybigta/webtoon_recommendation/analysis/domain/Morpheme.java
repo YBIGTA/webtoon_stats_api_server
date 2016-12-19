@@ -3,17 +3,9 @@ package ybigta.webtoon_recommendation.analysis.domain;
 public class Morpheme {
 
 	private String morpheme;
-	private int morphemeCount;
 	private String morphemeTag;
+	private int morphemeCount;
 	private int titleId;
-
-	public int getTitleId() {
-		return titleId;
-	}
-
-	public void setTitleId(int titleId) {
-		this.titleId = titleId;
-	}
 
 	public String getMorpheme() {
 		return morpheme;
@@ -21,6 +13,14 @@ public class Morpheme {
 
 	public void setMorpheme(String morpheme) {
 		this.morpheme = morpheme;
+	}
+
+	public String getMorphemeTag() {
+		return morphemeTag;
+	}
+
+	public void setMorphemeTag(String morphemeTag) {
+		this.morphemeTag = morphemeTag;
 	}
 
 	public int getMorphemeCount() {
@@ -31,19 +31,18 @@ public class Morpheme {
 		this.morphemeCount = morphemeCount;
 	}
 
-	public String getMorphemeTag() {
-		return morphemeTag;
+	public int getTitleId() {
+		return titleId;
 	}
 
-	public void setMorphemeTag(String morphemeTag) {
-		this.morphemeTag = morphemeTag;
+	public void setTitleId(int titleId) {
+		this.titleId = titleId;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Morpheme [morpheme=" + morpheme + ", morphemeCount=" + morphemeCount + ", morphemeTag=" + morphemeTag
 				+ ", titleId=" + titleId + "]";
 	}
-	
-	
+
 }
