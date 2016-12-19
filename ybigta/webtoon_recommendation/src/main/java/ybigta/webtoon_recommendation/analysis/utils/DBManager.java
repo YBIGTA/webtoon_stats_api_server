@@ -7,9 +7,9 @@ public class DBManager {
 	
 	private static Connection connection;
 	
-	private static final String CONNECTION_URL = "jdbc:mysql://175.158.15.40:3308/webtoon";
-	private static final String ID = "ybigta";
-	private static final String PASSWORD = "ybigta";
+	private static final String CONNECTION_URL = "";
+	private static final String ID = "";
+	private static final String PASSWORD = "";
 	
 	public static Connection connectDB() {
 		try {
