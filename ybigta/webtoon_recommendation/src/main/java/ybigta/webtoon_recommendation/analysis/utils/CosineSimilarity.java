@@ -23,7 +23,7 @@ import java.util.Set;
 
 public class CosineSimilarity {
 
-	public Double cosineSimilarity(Map<String, Integer> leftVector, Map<String, Integer> rightVector) {
+	public Double cosineSimilarity(Map<String, Double> leftVector, Map<String, Double> rightVector) {
 
 		if (leftVector == null || rightVector == null) {
 			throw new IllegalArgumentException("Vectors must not be null");
@@ -34,12 +34,12 @@ public class CosineSimilarity {
 		double dotProduct = dot(leftVector, rightVector, intersection);
 		double d1 = 0.0d;
 
-		for (Integer value : leftVector.values()) {
+		for (Double value : leftVector.values()) {
 			d1 += Math.pow(value, 2);
 		}
 
 		double d2 = 0.0d;
-		for (Integer value : rightVector.values()) {
+		for (Double value : rightVector.values()) {
 			d2 += Math.pow(value, 2);
 		}
 
@@ -63,7 +63,7 @@ public class CosineSimilarity {
 	 *            right vector map
 	 * @return common strings
 	 */
-	private Set<String> getIntersection(Map<String, Integer> leftVector, Map<String, Integer> rightVector) {
+	private Set<String> getIntersection(Map<String, Double> leftVector, Map<String, Double> rightVector) {
 		Set<String> intersection = new HashSet<String>(leftVector.keySet());
 		intersection.retainAll(rightVector.keySet());
 		return intersection;
@@ -82,7 +82,7 @@ public class CosineSimilarity {
 	 *            common elements
 	 * @return the dot product
 	 */
-	private double dot(Map<String, Integer> leftVector, Map<String, Integer> rightVector, Set<String> intersection) {
+	private double dot(Map<String, Double> leftVector, Map<String, Double> rightVector, Set<String> intersection) {
 		long dotProduct = 0;
 		for (String key : intersection) {
 			dotProduct += leftVector.get(key) * rightVector.get(key);

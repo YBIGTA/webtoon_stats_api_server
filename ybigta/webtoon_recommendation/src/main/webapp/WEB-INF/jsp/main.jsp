@@ -92,12 +92,12 @@
 		<div>
 		   <div class = "col-sm-4 col-md-2">
 		      <div class = "thumbnail">
-		         <img id="rec_4_thumbnail" src = "img/webtoon.png" alt = "Generic placeholder thumbnail">
+		         <img id="rec_5_thumbnail" src = "img/webtoon.png" alt = "Generic placeholder thumbnail">
 		      </div>
 		      <div class = "caption">
-		         <h3 id="rec_4_title" style="text-align:center">웹툰 제목</h3>
-		         <p id="rec_4_genre" style="text-align:center">장르</p>
-		         <p id="rec_4_author" style="text-align:center">작가</p>
+		         <h3 id="rec_5_title" style="text-align:center">웹툰 제목</h3>
+		         <p id="rec_5_genre" style="text-align:center">장르</p>
+		         <p id="rec_5_author" style="text-align:center">작가</p>
 		      </div>
 		   </div>			
 		</div>	

@@ -2,24 +2,24 @@ package ybigta.webtoon_recommendation.analysis.domain;
 
 public class Similarity {
 
-	private String webtoon1Name;
-	private String webtoon2Name;
+	private int webtoon1Id;
+	private int webtoon2Id;
 	private double similarity;
 
-	public String getWebtoon1Name() {
-		return webtoon1Name;
+	public int getWebtoon1Id() {
+		return webtoon1Id;
 	}
 
-	public void setWebtoon1Name(String webtoon1Name) {
-		this.webtoon1Name = webtoon1Name;
+	public void setWebtoon1Id(int webtoon1Id) {
+		this.webtoon1Id = webtoon1Id;
 	}
 
-	public String getWebtoon2Name() {
-		return webtoon2Name;
+	public int getWebtoon2Id() {
+		return webtoon2Id;
 	}
 
-	public void setWebtoon2Name(String webtoon2Name) {
-		this.webtoon2Name = webtoon2Name;
+	public void setWebtoon2Id(int webtoon2Id) {
+		this.webtoon2Id = webtoon2Id;
 	}
 
 	public double getSimilarity() {
@@ -28,6 +28,12 @@ public class Similarity {
 
 	public void setSimilarity(double similarity) {
 		this.similarity = similarity;
+	}
+
+	@Override
+	public String toString() {
+		return "Similarity [webtoon1Id=" + webtoon1Id + ", webtoon2Id=" + webtoon2Id + ", similarity=" + similarity
+				+ "]";
 	}
 
 }

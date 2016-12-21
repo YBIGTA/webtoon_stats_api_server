@@ -27,22 +27,34 @@
 	</select>
 	
 	<select id="selectRecommendWebtoonList" resultType="ybigta.webtoon_recommendation.domain.Webtoon">
-		
-		SELECT
-			title_id AS titleId,
-		    title AS title,
-		    author AS author,
-		    genre AS genre,
-		    thumbnail AS thumbnail
-		FROM
-			similarity sim
-			LEFT OUTER JOIN webtoon web
-		    ON sim.webtoon2_id = web.title_id
-		WHERE
-			sim.webtoon1_id = #{title_id}
-		ORDER BY
-			sim.sim_score
-		LIMIT 5;
+
+	SELECT 
+	  title AS title,
+	  titleId AS titleId,
+	  author AS author,
+	  genre AS genre,
+	  thumbnail AS thumbnail,    
+	  scoreParticipantAverage AS scoreParticipantAverage,
+	  heartsAverage AS heartsAverage
+	FROM
+	  similarity sim
+	      LEFT OUTER JOIN
+	  (SELECT 
+	       web.title AS title,
+	       we.title_id AS titleId,
+	       web.author AS author,
+	       web.genre AS genre,
+	       web.thumbnail AS thumbnail,
+	       AVG(score_participants) AS scoreParticipantAverage,
+	       AVG(hearts) AS heartsAverage
+	  FROM
+	      webtoon_episode we
+	  LEFT OUTER JOIN webtoon web ON we.title_id = web.title_id
+	  GROUP BY we.title_id) T ON sim.webtoon2_id = T.titleId
+	WHERE
+	    sim.webtoon1_id = #{title_id}   
+	ORDER BY sim.sim_score DESC
+	LIMIT 5;		
 		
 	</select>	
 </mapper>

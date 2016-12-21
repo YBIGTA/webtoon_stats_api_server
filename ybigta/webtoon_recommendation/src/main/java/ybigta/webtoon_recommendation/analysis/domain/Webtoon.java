@@ -9,7 +9,10 @@ public class Webtoon {
 	private String author;
 	private String genre;
 	private String thumbnail;
-	private Map<String, Integer> featureVector;
+	private double scoreParticipantAverage;
+	private double heartsAverage;
+
+	private Map<String, Double> featureVector;
 
 	public int getTitleId() {
 		return titleId;
@@ -43,10 +46,6 @@ public class Webtoon {
 		this.genre = genre;
 	}
 
-	public Map<String, Integer> getFeatureVector() {
-		return featureVector;
-	}
-
 	public String getThumbnail() {
 		return thumbnail;
 	}
@@ -55,7 +54,27 @@ public class Webtoon {
 		this.thumbnail = thumbnail;
 	}
 
-	public void setFeatureVector(Map<String, Integer> featureVector) {
+	public double getScoreParticipantAverage() {
+		return scoreParticipantAverage;
+	}
+
+	public void setScoreParticipantAverage(double scoreParticipantAverage) {
+		this.scoreParticipantAverage = scoreParticipantAverage;
+	}
+
+	public double getHeartsAverage() {
+		return heartsAverage;
+	}
+
+	public void setHeartsAverage(double heartsAverage) {
+		this.heartsAverage = heartsAverage;
+	}
+
+	public Map<String, Double> getFeatureVector() {
+		return featureVector;
+	}
+
+	public void setFeatureVector(Map<String, Double> featureVector) {
 		this.featureVector = featureVector;
 	}
 
